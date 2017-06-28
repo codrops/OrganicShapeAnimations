@@ -2,7 +2,7 @@
 
 Some shape morphing hover effects using SVG clipPath on an image.
 
-![Image Title](link)
+![Organic Shape Animations](https://tympanus.net/codrops/wp-content/uploads/2017/06/OrganicShapeAnimations_Featured.png)
 
 [Article on Codrops](https://tympanus.net/codrops/?p=31563)
 
