@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Organic Shape Animations | Codrops</title>
+		<meta name="description" content="Some shape morphing hover effects using SVG clipPath on an image." />
+		<meta name="keywords" content="clippath, svg, animation, morphing, image, organic, web design, web development" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="https://fonts.googleapis.com/css?family=Rubik:400,500,600" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<script>document.documentElement.className = 'js';</script>
+	</head>
+	<body class="loading">
+		<svg class="hidden">
+			<symbol id="icon-arrow" viewBox="0 0 24 24">
+				<title>arrow</title>
+				<polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "/>
+			</symbol>
+			<symbol id="icon-drop" viewBox="0 0 24 24">
+				<title>drop</title>
+				<path d="M12,21c-3.6,0-6.6-3-6.6-6.6C5.4,11,10.8,4,11.4,3.2C11.6,3.1,11.8,3,12,3s0.4,0.1,0.6,0.3c0.6,0.8,6.1,7.8,6.1,11.2C18.6,18.1,15.6,21,12,21zM12,4.8c-1.8,2.4-5.2,7.4-5.2,9.6c0,2.9,2.3,5.2,5.2,5.2s5.2-2.3,5.2-5.2C17.2,12.2,13.8,7.3,12,4.8z"/><path d="M12,18.2c-0.4,0-0.7-0.3-0.7-0.7s0.3-0.7,0.7-0.7c1.3,0,2.4-1.1,2.4-2.4c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.3,0.7,0.7C15.8,16.5,14.1,18.2,12,18.2z"/>
+			</symbol>
+			<symbol id="icon-github" viewBox="0 0 32.6 31.8">
+				<title>github</title>
+				<path d="M16.3,0C7.3,0,0,7.3,0,16.3c0,7.2,4.7,13.3,11.1,15.5c0.8,0.1,1.1-0.4,1.1-0.8c0-0.4,0-1.4,0-2.8c-4.5,1-5.5-2.2-5.5-2.2c-0.7-1.9-1.8-2.4-1.8-2.4c-1.5-1,0.1-1,0.1-1c1.6,0.1,2.5,1.7,2.5,1.7c1.5,2.5,3.8,1.8,4.7,1.4c0.1-1.1,0.6-1.8,1-2.2c-3.6-0.4-7.4-1.8-7.4-8.1c0-1.8,0.6-3.2,1.7-4.4C7.4,10.7,6.8,9,7.7,6.8c0,0,1.4-0.4,4.5,1.7c1.3-0.4,2.7-0.5,4.1-0.5c1.4,0,2.8,0.2,4.1,0.5c3.1-2.1,4.5-1.7,4.5-1.7c0.9,2.2,0.3,3.9,0.2,4.3c1,1.1,1.7,2.6,1.7,4.4c0,6.3-3.8,7.6-7.4,8c0.6,0.5,1.1,1.5,1.1,3c0,2.2,0,3.9,0,4.5c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5C32.6,7.3,25.3,0,16.3,0z"/>
+			</symbol>
+			<!-- All deco shapes -->
+			<defs>
+				<path id="deco1" d="M 161,54.69 C 230.4,4.986 303.7,8.661 414.4,92.19 465.7,130.9 432.3,211.4 460,279.5 481,331.2 449.7,430.4 381.1,427 287.1,422.3 172.4,503.8 99.27,444.6 21.03,381.1 10.32,258.3 55.25,145.6 73.73,99.3 129.3,77.36 161,54.69 Z" />
+				<path id="deco2" d="M 119.8,69.41 C 213.5,18.01 367.2,-1.306 440.4,76.58 482.9,121.9 435.3,200.8 432.9,262.9 431.1,310.6 461.3,372.1 427.7,406 342.4,492 158.3,499.3 64.62,422.5 10.09,377.8 18.76,282.6 32.51,213.5 43.46,158.4 70.61,96.36 119.8,69.41 Z" />
+				<path id="deco3" d="M 77.03,75.72 C 147.9,0.2308 309,13.37 387.6,80.44 471.8,152.4 517.2,325.6 442.9,407.5 350.2,509.8 43.77,516.2 29.67,378.8 20.48,289.3 80.25,270.4 87.78,212 93.61,166.8 45.85,108.9 77.03,75.72 Z" />
+				<path id="deco4" d="M 38.35,160.1 C 74.92,86.34 178.1,44.04 260.1,51.51 348.2,59.54 441.6,126.9 473.5,209.4 499.3,276 485,371.9 431.9,419.6 348.2,494.9 185.6,517.4 95.49,449.9 16.71,390.8 -5.393,248.3 38.35,160.1 Z"/>
+				<path id="deco5" d="M 49.94,386.5 C 9.795,286.4 7.674,129.7 94.72,65.99 188.4,-2.586 371.8,28.99 438.1,124.3 486.9,194.5 503.7,389.2 390.4,376.4 277.1,363.5 238.6,482 155.1,469.7 110.9,463.2 66.57,428 49.94,386.5 Z"/>
+				<path id="deco6" d="M 261.7,380.3 C 204.7,399.8 154.1,482.7 98.91,458.5 26.64,426.9 13.2,309.8 29.35,232.6 43.76,163.6 101.4,97.37 167.4,72.34 248,41.97 422.1,-2.762 423.4,107.7 424.6,218.1 507.5,272.4 464.3,336.7 425.7,394.2 327,357.9 261.7,380.3 Z" />
+				<path id="deco7" d="M 451.9,392.4 C 365.4,455.1 212.9,465.1 131.6,395.9 55.74,331.3 2.509,152.7 87.24,100.3 135.8,70.3 177.8,170.2 227.3,198.6 307.2,244.4 442.2,228.9 478.7,313.5 489.7,339 474.4,376.1 451.9,392.4 Z" />
+			</defs>
+		</svg>
+		<main>
+			<div class="content content--grid">
+				<a class="github" href="https://github.com/codrops/OrganicShapeAnimations/" title="Find this project on GitHub">
+					<svg class="github__deco" width="100%" height="100%" viewBox="0 0 200 200">
+						<path d="M 175.6,194.6 C 140.6,193.5 116.7,156.4 86.84,138.3 64.14,124.3 30.23,121.6 18.09,97.94 -2.925,57.04 -0.4009,-5.464 30.58,-39.44 64.64,-76.8 133.6,-87.78 179.7,-67.02 248.9,-35.86 316.7,54.76 297,128 284.9,172.5 221.7,196.1 175.6,194.6 Z"/>
+					</svg>
+					<svg class="icon icon--github"><use xlink:href="#icon-github"></use></svg>
+				</a>
+				<header class="codrops-header">
+					<div class="codrops-links">
+						<a class="codrops-icon codrops-icon--prev" href="https://tympanus.net/Development/LetterInteractions/" title="Previous Demo"><svg class="icon icon--arrow"><use xlink:href="#icon-arrow"></use></svg></a>
+						<a class="codrops-icon codrops-icon--drop" href="https://tympanus.net/codrops/?p=31563" title="Back to the article"><svg class="icon icon--drop"><use xlink:href="#icon-drop"></use></svg></a>
+					</div>
+					<h1 class="codrops-header__title">Organic <br> Shape <br/>Animations</h1>
+					<p class="codrops-header__subtitle">Hover effects with SVG clipPath</p>
+				</header>
+				
+				<div class="item item--style-1" data-animation-path-duration="800" data-animation-path-easing="easeInOutCubic" data-path-elasticity="300" data-morph-path="M 189,80.37 C 232.6,46.67 352.5,67.06 350.9,124.1 349.5,173.4 311.7,168 312.4,248.1 312.9,301.1 382.5,319.2 368.5,379.1 349.4,460.6 137.7,467.5 117.6,386.3 98.68,309.7 171.5,292.2 183.6,240.1 195.7,188.2 123.8,130.7 189,80.37 Z" data-path-scaleX="0.8" data-path-scaleY="1.1" data-path-translateX="0" data-path-translateY="30" data-path-rotate="5" data-animation-image-duration="800" data-animation-image-easing="easeInOutQuart" data-image-elasticity="300" data-image-scaleX="1.2" data-image-scaleY="1.2" data-image-translateX="-20" data-image-translateY="-45" data-image-rotate="-5" data-animation-deco-duration="1300" data-animation-deco-easing="easeOutQuad" data-deco-elasticity="300" data-deco-scaleX="0.8" data-deco-scaleY="0.9" data-deco-translateX="-5" data-deco-translateY="-5" data-deco-rotate="2">
+					<svg class="item__svg" width="500px" height="500px" viewBox="0 0 500 500">
+						<clipPath id="clipShape1">
+							<path class="item__clippath" d="M 189,80.37 C 243,66.12 307.3,87.28 350.9,124.1 389.3,156.6 417,211.2 418.1,263.4 419.1,305.7 401.8,355.6 368.5,379.1 298.8,428 179.2,446.4 117.6,386.3 65.4,335.3 78.55,230.3 105.5,160.5 119.7,123.6 152.6,89.85 189,80.37 Z" />
+						</clipPath>
+						<g class="item__deco">
+							<use xlink:href="#deco1" />
+						</g>
+						<g clip-path="url(#clipShape1)">
+							<image class="item__img" xlink:href="img/1.png" x="0" y="0" height="500px" width="500px" />
+						</g>
+					</svg>
+					<div class="item__meta">
+						<div class="item__number">
+							<span class="item__specimen">21</span>
+							<span class="item__reference">BX3</span>
+						</div>
+						<h2 class="item__title">Codium fasciculatus</h2>
+						<h3 class="item__subtitle">Exoplanet Gliese 180 b</h3>
+					</div>
+				</div>
+
+				<div class="item item--style-2" data-animation-path-duration="1500" data-animation-path-easing="easeOutElastic" data-morph-path="M 418.1,159.8 C 460.9,222.9 497,321.5 452.4,383.4 417.2,432.4 371.2,405.6 271.3,420.3 137.2,440 90.45,500.6 42.16,442.8 -9.572,381 86.33,289.1 117.7,215.5 144.3,153.4 145.7,54.21 212.7,36.25 290.3,15.36 373.9,94.6 418.1,159.8 Z" data-path-scaleY="1.1" data-image-scaleX="1.3" data-image-scaleY="1.3" data-animation-deco-duration="2000" data-animation-deco-delay="100" data-deco-rotate="-10">
+					<svg class="item__svg" width="500px" height="500px" viewBox="0 0 500 500">
+						<clipPath id="clipShape2">
+							<path class="item__clippath" d="M 378.1,121.2 C 408.4,150 417.2,197.9 411,245.8 404.8,293.7 383.5,341.7 353.4,370.7 303.2,419.1 198.7,427.7 144.5,383.8 86.18,336.5 67.13,221.3 111.9,161 138.6,125 188.9,99.62 240.7,90.92 292.4,82.24 345.6,90.32 378.1,121.2 Z" />
+						</clipPath>
+						<g class="item__deco">
+							<use xlink:href="#deco2" />
+						</g>
+						<g clip-path="url(#clipShape2)">
+							<image class="item__img" xlink:href="img/2.png" x="0" y="0" height="500px" width="500px" />
+						</g>
+					</svg>
+					<div class="item__meta">
+						<div class="item__number">
+							<span class="item__specimen">65</span>
+							<span class="item__reference">AG9</span>
+						</div>
+						<h2 class="item__title">Amphiroa corymbosa</h2>
+						<h3 class="item__subtitle">Exoplanet Kepler-174d</h3>
+					</div>
+				</div>
+
+				<div class="item item--style-3" data-animation-path-duration="3500" data-path-elasticity="500" data-morph-path="M 193.7,217.3 C 236.4,228.3 279.7,242.7 320.9,231.8 362.6,220.9 446.8,197.1 457.6,241.5 469.3,289.8 378.7,308.3 330.2,319.2 278.5,330.8 222.3,319.2 172.1,302.2 125.2,286.4 33.08,273.2 45.14,225.2 57.22,177.1 145.7,204.8 193.7,217.3 Z" data-path-translateY="-20" data-animation-image-duration="1000" data-animation-image-easing="easeOutQuint" data-image-rotate="45" data-image-scaleX="0.8" data-image-scaleY="0.8" data-animation-deco-duration="2000" data-animation-deco-easing="easeOutElastic" data-deco-scaleX="0.7" data-deco-rotate="-10">
+					<svg class="item__svg" width="500px" height="500px" viewBox="0 0 500 500">
+						<clipPath id="clipShape3">
+							<path class="item__clippath" d="M 184,127.4 C 235.4,92.39 319.7,79.27 359.9,132.2 383.2,163 357.1,216.6 355.8,258.8 354.8,291.2 371.3,332.9 352.9,356 306.1,414.4 205.1,419.3 153.7,367.2 123.8,336.8 128.6,272.1 136.1,225.2 142.1,187.8 157,145.7 184,127.4 Z" />
+						</clipPath>
+						<g class="item__deco">
+							<use xlink:href="#deco3" />
+						</g>
+						<g clip-path="url(#clipShape3)">
+							<image class="item__img" xlink:href="img/3.png" x="0" y="0" height="500px" width="500px" />
+						</g>
+					</svg>
+					<div class="item__meta">
+						<div class="item__number">
+							<span class="item__specimen">46</span>
+							<span class="item__reference">XK2</span>
+						</div>
+						<h2 class="item__title">Bartoniella crenata</h2>
+						<h3 class="item__subtitle">Exoplanet K2-3d</h3>
+					</div>
+				</div>
+
+				<div class="item item--style-4" data-animation-path-duration="1700" data-animation-path-easing="easeInOutBack" data-morph-path="M 440.9,118.5 C 486.5,189.8 499,297.9 458.3,371.8 422.2,437.2 335.8,475.1 261.5,477.3 181.4,479.6 83.9,445.4 43.22,376.1 -0.2483,302.1 13.51,189.9 61.98,119.1 104.5,56.88 190.6,20.5 265.7,22.71 332.2,24.67 405,62.28 440.9,118.5 Z" data-path-translateY="-20" data-animation-image-duration="2000" data-animation-image-easing="easeInOutQuart" data-image-translateY="40" data-image-scaleX="1.3" data-image-scaleY="1.3" data-deco-scaleX="0.8" data-deco-scaleY="1.3">
+					<svg class="item__svg" width="500px" height="500px" viewBox="0 0 500 500">
+						<clipPath id="clipShape4">
+							<path class="item__clippath" d="M 402.7,215.5 C 433.9,280.4 488.1,367.2 447.7,426.8 410.1,482.2 316.7,460.2 249.7,460.6 182.8,461.1 88.08,485.5 51.26,429.5 10.29,367.3 73.19,279.4 106.9,213 141.8,144 176.6,33.65 253.9,33.7 332.2,33.75 368.8,144.9 402.7,215.5 Z" />
+						</clipPath>
+						<g class="item__deco">
+							<use xlink:href="#deco4" />
+						</g>
+						<g clip-path="url(#clipShape4)">
+							<image class="item__img" xlink:href="img/4.png" x="0" y="0" height="500px" width="500px" />
+						</g>
+					</svg>
+					<div class="item__meta">
+						<div class="item__number">
+							<span class="item__specimen">92</span>
+							<span class="item__reference">EY7</span>
+						</div>
+						<h2 class="item__title">Ceramium camouii</h2>
+						<h3 class="item__subtitle">Exoplanet Gliese 180 c</h3>
+					</div>
+				</div>
+
+				<div class="item item--style-5" data-animation-path-duration="3000" data-animation-path-easing="easeInOutQuint" data-path-rotate="90" data-morph-path="M 368.1,46.42 C 461,96.69 473.7,266.2 422.3,358.4 379.1,436 259.6,484.8 175,457.5 107.5,435.7 12.65,329.8 60.93,277.7 95.18,240.8 154,379.3 194.2,348.9 250.7,306 116,204.1 148.4,140.9 184.8,70.02 298,8.455 368.1,46.42 Z" data-animation-image-duration="3000" data-animation-image-easing="easeInOutQuint" data-image-rotate="-30"  data-animation-deco-duration="3000" data-animation-deco-easing="easeOutQuint">
+					<svg class="item__svg" width="500px" height="500px" viewBox="0 0 500 500">
+						<clipPath id="clipShape5">
+							<path class="item__clippath" d="M 451.5,185.8 C 441.5,266.2 339.6,305 272.3,350.2 207.7,393.6 226.7,444.7 182.6,447.9 132.8,451.4 83.97,399.9 66.37,353.1 34.6,268.4 41.16,141.8 112,85.44 186.1,26.33 313.8,54.1 396,101.4 425.2,118.2 455.6,152.4 451.5,185.8 Z" />
+						</clipPath>
+						<g class="item__deco">
+							<use xlink:href="#deco5" />
+						</g>
+						<g clip-path="url(#clipShape5)">
+							<image class="item__img" xlink:href="img/5.png" x="0" y="0" height="500px" width="500px" />
+						</g>
+					</svg>
+					<div class="item__meta">
+						<div class="item__number">
+							<span class="item__specimen">35</span>
+							<span class="item__reference">EY7</span>
+						</div>
+						<h2 class="item__title">Acrochaetium moniliforme</h2>
+						<h3 class="item__subtitle">Exoplanet HD 40307 g</h3>
+					</div>
+				</div>
+
+				<div class="item item--style-6" data-animation-path-duration="2000" data-path-scaleX="0.7" data-path-scaleY="0.7" data-path-rotate="25" data-morph-path="M 279.8,41.26 C 332.2,40.04 397.1,40.63 432.5,79.42 470.9,121.7 455.7,191.8 458.3,249 460.6,300.4 481.9,363.6 448.9,403.1 402.7,458.2 311.1,450.1 239.3,453.9 183.9,456.9 113.3,471.5 74.23,432.1 18.97,376.3 29.82,251.5 45.32,198.4 59.64,149.2 95.01,111.8 134.9,84.73 176.6,56.36 229.4,42.43 279.8,41.26 Z" data-animation-image-duration="2000" data-animation-image-easing="easeOutExpo" data-image-translateY="-30" data-image-scaleX="0.9" data-image-scaleY="0.9">
+					<svg class="item__svg" width="500px" height="500px" viewBox="0 0 500 500">
+						<clipPath id="clipShape6">
+							<path class="item__clippath" d="M 274.4,32.13 C 328.5,36.28 249,139.7 287.7,192.8 326.3,245.9 483.3,248.4 459,295 434.9,341.2 341.4,267.6 298,297.5 247.4,332.3 296,461.4 233.9,467.8 177.2,473.8 214.2,326.3 176,268.3 137.8,210.5 24.39,242.4 39.89,189.3 54.21,140.1 142,158.9 184.6,129.2 221.1,103.9 229.3,28.68 274.4,32.13 Z" />
+						</clipPath>
+						<g class="item__deco">
+							<use xlink:href="#deco6" />
+						</g>
+						<g clip-path="url(#clipShape6)">
+							<image class="item__img" xlink:href="img/6.png" x="0" y="0" height="500px" width="500px" />
+						</g>
+					</svg>
+					<div class="item__meta">
+						<div class="item__number">
+							<span class="item__specimen">18</span>
+							<span class="item__reference">XC5</span>
+						</div>
+						<h2 class="item__title">Callithamniella capensis</h2>
+						<h3 class="item__subtitle">Exoplanet Kepler-298d</h3>
+					</div>
+				</div>
+
+				<div class="item item--style-7" data-animation-path-duration="2500" data-animation-path-easing="easeOutExpo" data-path-rotate="10" data-path-scaleX="0.5" data-morph-path="M 251.1,32.08 C 320.8,39.34 403.4,70.51 435.8,132.7 476.2,210.5 460.8,325.2 406.4,394 360.4,452.2 271,467.5 196.8,469.3 144.1,470.5 65.63,471.7 45.51,423 17.77,355.8 140.2,302.9 148.3,230.6 154.4,177.4 80.17,122.4 106.2,75.55 130.7,31.47 200.9,26.86 251.1,32.08 Z" data-animation-image-duration="1500" data-animation-image-easing="easeOutCubic" data-image-rotate="-30" data-animation-deco-duration="1500" data-animation-deco-easing="easeOutExpo" data-deco-scaleX="0.7" data-deco-translateX="-100" data-deco-translateY="-100" data-deco-rotate="50">
+					<svg class="item__svg" width="500px" height="500px" viewBox="0 0 500 500">
+						<clipPath id="clipShape7">
+							<path class="item__clippath" d="M 280.1,34.42 C 465.8,29.89 514.6,354 417.3,392.3 318.9,423.2 332.3,114.7 233.3,143.6 134,172.6 294.3,390.5 212,453.2 174.8,481.6 106.3,459.6 74.54,425.3 21.22,367.7 30.13,244.7 45.63,191.6 59.95,142.4 95.32,105 135.2,77.89 176.9,49.52 229.9,29.96 280.1,34.42 Z" />
+						</clipPath>
+						<g class="item__deco">
+							<use xlink:href="#deco7" />
+						</g>
+						<g clip-path="url(#clipShape7)">
+							<image class="item__img" xlink:href="img/7.png" x="0" y="0" height="500px" width="500px" />
+						</g>
+					</svg>
+					<div class="item__meta">
+						<div class="item__number">
+							<span class="item__specimen">27</span>
+							<span class="item__reference">UZ4</span>
+						</div>
+						<h2 class="item__title">Cheilosporum cultratum</h2>
+						<h3 class="item__subtitle">Exoplanet Gliese 682 c</h3>
+					</div>
+				</div>
+
+				<div class="item item--style-8" data-animation-path-duration="2000" data-animation-path-easing="easeInOutQuart" data-morph-path="M 30.03,240.4 C 31.35,186.2 39.67,120 85.95,86.14 162.5,30.12 302,3.296 378.7,59.08 413.1,84.14 383.6,140 395.1,178.8 411.6,234.4 477.8,280.7 469.5,337.7 462.6,384.1 420.9,429 373.8,447.7 286.1,482.5 161.8,482.4 87.79,427 33.04,386 28.46,305 30.03,240.4 Z" data-path-scaleX="1.1" data-path-scaleY="1.1" data-animation-image-duration="2300" data-animation-image-easing="easeInOutQuart" data-image-scaleX="1.3" data-image-scaleY="1.3" data-image-translateY="-60" data-animation-deco-duration="2000" data-animation-deco-easing="easeInOutQuart" data-deco-scaleX="1.1" data-deco-scaleY="1.1" data-deco-rotate="-15">
+					<svg class="item__svg" width="500px" height="500px" viewBox="0 0 500 500">
+						<clipPath id="clipShape8">
+							<path class="item__clippath" d="M 47.99,295.7 C 44.25,252.9 72.33,195.7 110.4,167 169.6,122.4 259,106.1 329.6,128.8 381.3,145.4 428,193 443.7,245 453.3,277 464.9,322.4 424.6,343.5 369,372.7 304.2,310.1 239.1,319 190.9,325.5 153,380 107.6,373.4 64.97,367.3 50.68,326.4 47.99,295.7 Z" />
+						</clipPath>
+						<g class="item__deco">
+							<use xlink:href="#deco2" />
+						</g>
+						<g clip-path="url(#clipShape8)">
+							<image class="item__img" xlink:href="img/8.png" x="0" y="0" height="500px" width="500px" />
+						</g>
+					</svg>
+					<div class="item__meta">
+						<div class="item__number">
+							<span class="item__specimen">12</span>
+							<span class="item__reference">QS3</span>
+						</div>
+						<h2 class="item__title">Audouinella endophytica</h2>
+						<h3 class="item__subtitle">Exoplanet LHS 1140 b</h3>
+					</div>
+				</div>
+
+				<div class="item item--style-9" data-morph-path="M 164.5,192.8 C 175.7,141.8 72.78,88.24 105.6,47.66 143.5,0.9129 223.2,82.47 283.3,79.39 337.1,76.63 401.6,-4.239 438.6,34.87 469.7,67.69 397.7,117.7 394.3,162.8 388,245.5 486.3,339.3 439.3,407.7 387.7,482.7 256.1,489.7 170.9,457.7 109,434.4 43.21,367.8 48.17,301.9 52.16,248.9 153.1,244.7 164.5,192.8 Z">
+					<svg class="item__svg" width="500px" height="500px" viewBox="0 0 500 500">
+						<clipPath id="clipShape9">
+							<path class="item__clippath" d="M 42.83,227.7 C 58.04,162.6 148.6,142.8 209,113.1 257.1,89.44 320.1,30.73 362.2,63.69 401.6,94.57 329.8,166.3 349.1,212.1 367.3,255.2 453,255.4 457.9,301.8 464.4,362.5 405,452.6 343.6,445.7 281.1,438.6 319.7,305.1 263.6,276.7 210.8,250 142.4,334.1 88.72,309.2 60.22,296 35.75,258 42.83,227.7 Z" />
+						</clipPath>
+						<g class="item__deco">
+							<use xlink:href="#deco3" />
+						</g>
+						<g clip-path="url(#clipShape9)">
+							<image class="item__img" xlink:href="img/9.png" x="0" y="0" height="500px" width="500px" />
+						</g>
+					</svg>
+					<div class="item__meta">
+						<div class="item__number">
+							<span class="item__specimen">59</span>
+							<span class="item__reference">PQ2</span>
+						</div>
+						<h2 class="item__title">Peyssonnelia capensis</h2>
+						<h3 class="item__subtitle">Exoplanet Gliese 625 b</h3>
+					</div>
+				</div>
+
+			</div>
+			<!-- Related demos -->
+			<section class="content content--related">
+				<p>If you enjoyed this demo you might also like:</p>
+				<a class="media-item" href="https://tympanus.net/Development/MorphingBackgroundShapes/">
+					<img class="media-item__img" src="img/related/MorphingBackgroundShapes.jpg" />
+					<h3 class="media-item__title">Morphing Background Shapes</h3>
+				</a>
+				<a class="media-item" href="https://tympanus.net/Tutorials/ShapeHoverEffectSVG/">
+					<img class="media-item__img" src="img/related/SVGShapes.png">
+					<h3 class="media-item__title">Shape Hover Effects</h3>
+				</a>
+			</section>
+		</main>
+		<script src="js/anime.min.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
